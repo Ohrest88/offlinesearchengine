@@ -1,58 +1,89 @@
-# Offline Search Engine
-
-## Offline Search Engine (formerly Pocket Search Engine)
-
-**Offline Search Engine** is a on-device "mini-Google" running on device, for PDF and HTML files. Load your PDFs and saved web pages, search by meaning or exact text, get results, and choose which results to view.
-
-It's an install-and-forget-until-needed App, for Hikers, mountaineers, off-roaders, emergencies or anyone who might need to search for information when there's no internet. 
-
-There's an optional download of a pre-populated DB with essential info (car manuals, first-aid, water purification, et-cetera)
+# 🔍 Offline Search Engine
 
 
-Pre-built for Adroid
-In Google Play store: https://play.google.com/store/apps/details?id=com.pocketsearchengine.app
+[![License](https://img.shields.io/github/license/yourusername/offline-search-engine.svg)](LICENSE)
+[![Flutter](https://img.shields.io/badge/Flutter-3.29.x-blue?logo=flutter)](https://flutter.dev/)
+[![Android](https://img.shields.io/badge/Platform-Android-green?logo=android)](https://play.google.com/store/apps/details?id=com.pocketsearchengine.app)
+[![Linux](https://img.shields.io/badge/Platform-Linux-orange?logo=linux)](#)
+
+---
+
+## 🌐 Overview
+
+**Offline Search Engine** (formerly *Pocket Search Engine*) is an on-device search engine app, a "mini Google" that works without the Internet.
+
+Load your **PDF** and **HTML** files, search by **meaning** or **exact text**, and find what you need, offline.
+
+Use-case:
+> 🏔️ Hikers • 🚙 Off-roaders • 🧭 Mountaineers • 🚑 Emergency use • 🛠️ Anyone who might need to search information without Internet
+
+Optionally, you can download a **pre-populated database** with essential survival info (car manuals, first aid, water purification, etc).
+
+---
+
+## 📱 Download (Android | Linux)
+
+<a href="https://play.google.com/store/apps/details?id=com.pocketsearchengine.app">
+  <img alt="Get it on Google Play"
+       src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+       height="80"/>
+</a>
+
+**Pre-built for Android**  
+📦 [Google Play Store →](https://play.google.com/store/apps/details?id=com.pocketsearchengine.app)
+
+**Linux App Image**  
+[⬇️ Download AppImage (latest)](https://github.com/Ohrest88/offlinesearchengine/releases/latest/download/PocketSearchEngine-x86_64.AppImage)
 
 
-[![Get it on Google Play](https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=com.pocketsearchengine.app)
+---
 
-## Demo
+## 🎥 Demo
 
 [![Watch the demo](https://img.youtube.com/vi/MHIDt42Gxs0/hqdefault.jpg)](https://www.youtube.com/watch?v=MHIDt42Gxs0)
 
+---
 
+## 💡 Features
 
-## Support
+- **Completely offline & private:** No network calls or telemetry. All inference, embeddings, and indexing are done on-device.
+- **Local PDF/HTML indexing:** Add files manually — the app only scans what you load, not your entire filesystem.
+- **Semantic + exact search:** Search by *meaning* (via vector embeddings) or use quotes for exact text.
+- **Optional preloaded DB:** Includes useful offline references like first aid, water purification, and car manuals.
+- **Cross-platform support:**  
+  - ✅ Android (fully supported)  
+  - 🐧 Linux (Supported, with caveat: HTML opens in default browser rather than inbuild web viewer)
+- 💾 **Export/import database:** Backup or share your offline knowledge base easily.
 
-- **Android**: Supported (available on Google Play).
-- **Linux**: AppImage creation supported from source.
-  - Caveat: The in-app viewer will not work for HTML files; the app will open the local HTML file using the OS's default browser instead.
+---
 
+## 🧩 Pre-built Executables Platform Support
 
-### What it does & how it works
+| Platform | Status | Notes |
+|-----------|---------|-------|
+| **Android** | ✅ Supported | Available on Google Play |
+| **Linux** | ✅ Supported AppImage | Download Linux App image from release link | In-app HTML viewer fallback to system browser |
+| **Windows / iOS** | Not attempted, but possible | Flutter and the choice of packages used makes this feasible |
 
-- **Offline, private search:** Everything runs locally with inbuilt sentence-embedder models, inference engines, database; no servers or network calls.
-- **Local PDF/HTML indexing:** You explicitly load .pdf or .html files; the app indexes them and stores embeddings + keywords in its own internal database (no access to the rest of the system).
-- **Semantic + exact:** Your search query will be processed based on its meaning (aka semantic search, like most search engines), use quotes if you want exact keyword search. Internally, this involves vector search.
-- **Optional pre-populated DB:** Optionally download a pre-populated demo DB (car manuals, first aid, water purification, etc.)
-- **Cross-platform:** Current code supports Android and Linux. But being built in flutter, it is possible do build for Windows and IOS 
-- **Export/import DB feature**
+---
 
+## 🛠️ Requirements (for local build)
 
+- **Flutter (stable)** — Recommended: `3.29.x`
+- **Linux dependencies:**
+  - `cmake`, `ninja-build`, `clang`, `pkg-config`, `libgtk-3-dev`
+  - (See Dockerfile for full list)
+- **Rust toolchain (stable)** — for native bridge code
+- **Android SDK + NDK** — for Android builds
 
-## Requirements (build/run from local)
-- Flutter (stable). Recommended: 3.29.x
-- For Linux desktop:
-  - Ubuntu: cmake, ninja-build, clang, pkg-config, libgtk-3-dev (see Dockerfile for full list)
-- For Rust bridge (already configured): Rust toolchain (stable) on dev machines building native code
-- Android SDK + NDK (if building for Android)
+---
 
-## Quick Start
+## 🚀 Quick Start
 
-### Run on Linux (desktop)
+### 🐧 Run on Linux (Desktop)
 ```bash
 flutter pub get
 flutter run -d linux
-```
 
 
 ### Run on Android (device)
@@ -77,5 +108,21 @@ docker cp temp:/home/builder/app/PocketSearchEngine-x86_64.AppImage .
 docker rm temp
 ```
 
+
+### Run on Android (Device)
+
+1. **Enable Developer Options + USB Debugging**  
+   Set USB mode to **File transfer (MTP)**.
+
+   ```bash
+   yes | flutter doctor --android-licenses
+   flutter doctor -v
+   adb devices -l
+
+
+2.  **Run the app:**
+    ```bash
+    flutter run
+    ```
 
 ### Contributions and merge requests welcome.
