@@ -1,7 +1,7 @@
 # 🔍 Offline Search Engine
 
 
-[![License](https://img.shields.io/github/license/yourusername/offline-search-engine.svg)](LICENSE)
+[![License](https://img.shields.io/github/license/Ohrest88/offline-search-engine.svg)](LICENSE)
 [![Flutter](https://img.shields.io/badge/Flutter-3.29.x-blue?logo=flutter)](https://flutter.dev/)
 [![Android](https://img.shields.io/badge/Platform-Android-green?logo=android)](https://play.google.com/store/apps/details?id=com.pocketsearchengine.app)
 [![Linux](https://img.shields.io/badge/Platform-Linux-orange?logo=linux)](#)
@@ -84,7 +84,7 @@ Optionally, you can download a **pre-populated database** with essential surviva
 ```bash
 flutter pub get
 flutter run -d linux
-
+```
 
 ### Run on Android (device)
 1) Enable Developer Options + USB debugging on your phone and set USB mode to "File transfer (MTP)".
@@ -125,4 +125,11 @@ docker rm temp
     flutter run
     ```
 
-### Contributions and merge requests welcome.
+
+## 📄 License
+This project is open source under **GNU GPLv3**. See [`LICENSE.md`](./LICENSE.md) and [`CONTRIBUTING.md`](./CONTRIBUTING.md) for details.
+
+© 2025 Orest Sota
+
+Licensed under the GNU General Public License version 3 (GPLv3).
+See the LICENSE and CONTRIBUTING file for details.
