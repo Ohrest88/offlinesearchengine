@@ -360,7 +360,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       navigatorKey: navigatorKey,
-      title: 'Pocket Search Engine',
+      title: 'Offline Search Engine',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: const Color(0xFFF5F5F5),  // Light grey background
@@ -1067,7 +1067,7 @@ class MyHomePageState extends State<MyHomePage> {
             ),
             const SizedBox(width: 16),
             const Text(
-              'Pocket Search Engine',
+              'Offline Search Engine',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18,  // Slightly smaller

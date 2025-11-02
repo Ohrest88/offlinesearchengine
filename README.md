@@ -62,7 +62,7 @@ Optionally, you can download a **pre-populated database** with essential surviva
 | Platform | Status | Notes |
 |-----------|---------|-------|
 | **Android** | ✅ Supported | Available on Google Play |
-| **Linux** | ✅ Supported AppImage | Download Linux App image from release link | In-app HTML viewer fallback to system browser |
+| **Linux** | ✅ AppImage available | Download AppImage from releases, mark executable with `chmod +x`. Note: HTML files open in the default system browser rather than in-app viewer. |
 | **Windows / iOS** | Not attempted, but possible | Flutter and the choice of packages used makes this feasible |
 
 ---
@@ -80,27 +80,33 @@ Optionally, you can download a **pre-populated database** with essential surviva
 
 ## 🚀 Quick Start
 
-### 🐧 Run on Linux (Desktop)
+### Run from Source
+
+#### Linux desktop
 ```bash
 flutter pub get
 flutter run -d linux
 ```
 
-### Run on Android (device)
-1) Enable Developer Options + USB debugging on your phone and set USB mode to "File transfer (MTP)".
+#### Android
+1. Enable Developer Options and USB debugging, then set the USB mode to **File transfer (MTP)**.
 ```bash
 yes | flutter doctor --android-licenses
 flutter doctor -v
 adb devices -l
 ```
-2) Run:
+2. Launch the app on the connected device:
 ```bash
 flutter run
 ```
 
-## Building
+### Use pre-built releases
+- Android: install from the Google Play listing linked above.
+- Linux: download the AppImage from the latest release, run `chmod +x PocketSearchEngine-x86_64.AppImage`, then execute it.
 
-### Build Linux AppImage via Docker (reproducible)
+## Build from Source
+
+### Linux AppImage via Docker (reproducible)
 ```bash
 docker build -t pocketsearch-builder .
 docker create --name temp pocketsearch-builder
@@ -108,22 +114,11 @@ docker cp temp:/home/builder/app/PocketSearchEngine-x86_64.AppImage .
 docker rm temp
 ```
 
-
-### Run on Android (Device)
-
-1. **Enable Developer Options + USB Debugging**  
-   Set USB mode to **File transfer (MTP)**.
-
-   ```bash
-   yes | flutter doctor --android-licenses
-   flutter doctor -v
-   adb devices -l
-
-
-2.  **Run the app:**
-    ```bash
-    flutter run
-    ```
+### Android release build
+```bash
+flutter build apk --release
+```
+The generated artifacts are stored under `build/app/outputs`. Use `flutter build appbundle --release` if you need a Play Store bundle.
 
 
 ## 📄 License
