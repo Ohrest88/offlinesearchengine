@@ -226,8 +226,14 @@ class SinglePageTextSearcher extends PdfTextSearcher {
     // Increment search session to cancel any ongoing search
     _searchSession++;
 
+    bool _patternIsEmpty(Pattern value) {
+      if (value is String) return value.isEmpty;
+      if (value is RegExp) return value.pattern.isEmpty;
+      return false;
+    }
+
     // Start search immediately
-    if (pattern.isEmpty) {
+    if (_patternIsEmpty(pattern)) {
       _resetTextSearch();
       return;
     }
