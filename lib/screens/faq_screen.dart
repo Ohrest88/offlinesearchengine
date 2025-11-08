@@ -212,7 +212,7 @@ class SupportInfo extends StatelessWidget {
           InfoRow(
             icon: Icons.info_outline,
             label: 'Version',
-            value: '1.1.0',
+            value: '1.1.1',
           ),
           SizedBox(height: 12),
           InfoRow(

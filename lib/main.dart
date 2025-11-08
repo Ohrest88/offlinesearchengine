@@ -908,7 +908,7 @@ class MyHomePageState extends State<MyHomePage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Version 1.1.0',
+                                    'Version 1.1.1',
                                     style: TextStyle(
                                       color: Colors.grey[600],
                                       fontSize: 12,
