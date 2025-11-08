@@ -1,0 +1,12 @@
+[target.aarch64-linux-android]
+rustflags = [
+  "-Clink-arg=-Wl,-z,common-page-size=4096",
+  "-Clink-arg=-Wl,-z,max-page-size=16384"
+]
+
+[target.armv7-linux-androideabi]
+rustflags = [
+  "-Clink-arg=-Wl,-z,common-page-size=4096",
+  "-Clink-arg=-Wl,-z,max-page-size=16384"
+]
+
